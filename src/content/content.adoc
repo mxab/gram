@@ -1,0 +1,16 @@
+= Content
+
+Asciidoc is used to author the main content of each site
+
+== Basic
+
+For every `.adoc` file you put into `src/content` a complete html file will be the result
+
+.src/content/index.adoc
+[source,asciidoc]
+----
+= Hello World
+
+This is my site
+----
+

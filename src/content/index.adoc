@@ -1,0 +1,50 @@
+= gram
+
+== about
+
+gram is an static site generator based on https://gradle.org/[gradle] and https://www.thymeleaf.org/[thymeleaf].
+
+=== Setup
+
+.build.gradle
+[source,groovy]
+----
+apply plugin : "io.komputer.gram"
+----
+
+=== Define first page
+Put your main content in the index.adoc in `src/content`
+
+.src/content/index.adoc
+[source,asciidoc]
+----
+= Hello World
+
+This is my site
+----
+
+=== Build
+
+[source,shell]
+----
+./gradlew site
+----
+
+
+=== Preview
+
+The preview tasks starts an embedded webserver that hosts your files and reloads the content automatically if something changes
+[source,shell]
+----
+./gradlew preview
+----
+
+Use gradle's continuous build flag to rerun the build part
+
+[source,shell]
+----
+./gradlew site -t
+----
+
+
+

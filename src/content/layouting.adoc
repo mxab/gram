@@ -1,0 +1,28 @@
+= Layouting
+gram uses Thymeleaf to layout the page.
+
+The idea of Thymeleaf is to have valid HTML source code that even may contain sample data.
+It uses special attributes for example `th:...` to that are getting picked up by the engine
+
+== Template
+
+As your default layout put a `default.html` inside of `src/templates`
+
+.src/templates/default.html
+[source,html]
+----
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<p>This is my website</p>
+<div th:insert="${content} :: #content">
+</body>
+----
+
+The template engine processes every output of your content (asciidoc files)
+The `${content}` reflects the output of one asciidoc file (have a look at `build/content`)
+
+== Gradle Task
+
+The Gradle task `generateHTML` processes all outputs of your content files.
+Currently every file `<name>.adoc` will result in a `build/pages/<name>/index.html`. Except `index.adoc` files, they will stay on the same level.

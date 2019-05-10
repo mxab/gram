@@ -1,0 +1,17 @@
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "io.github.mxab.gram:gram:0.1.0-SNAPSHOT"
+    }
+}
+
+apply plugin:"io.github.mxab.gram"
+
+tasks.register("docs", Copy){
+  from tasks.named("site")
+  into("docs")
+}

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+
+  <meta th:replace="${content} :: meta"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="utf-8" th:remove="tag">
+
+  <title th:replace="${content} :: title">Starter Template · Bootstrap</title>
+
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/minty/bootstrap.min.css"
+        rel="stylesheet">
+  <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/zenburn.min.css">
+
+  <link href="/style.css" rel="stylesheet">
+  <style>
+    body {
+      padding-top: 5rem;
+    }
+
+    .starter-template {
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+
+<header class="container" >
+  <div class="row">
+    <div class="col-3 "></div>
+  <div class="jumbotron col-6" th:insert="${content} :: #header">
+    <h1 class="display-4" >Hello, world!</h1>
+
+  </div>
+    <div class="col-3"></div>
+  </div>
+</header>
+
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6" th:insert="${content} :: #content">
+      <p>This is the main content</p>
+    </div>
+    <div class="col-3"></div>
+  </div>
+</main><!-- /.container -->
+<footer class="container" th:insert="${content} :: #footer">
+  Footer
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/asciidoc.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/groovy.min.js"></script>
+<script>
+  hljs.configure({
+    tabReplace: '    ',
+  });
+  hljs.initHighlighting();
+</script>
+</body>
+</html>

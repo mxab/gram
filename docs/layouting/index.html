@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+
+  <meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 2.0.8"><meta name="author" content="gram uses Thymeleaf to layout the page.">
+  
+
+  <title>Layouting</title>
+
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/minty/bootstrap.min.css"
+        rel="stylesheet">
+  <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/zenburn.min.css">
+
+  <link href="/style.css" rel="stylesheet">
+  <style>
+    body {
+      padding-top: 5rem;
+    }
+
+    .starter-template {
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+
+<header class="container" >
+  <div class="row">
+    <div class="col-3 "></div>
+  <div class="jumbotron col-6"><div id="header">
+<h1>Layouting</h1>
+<div class="details">
+<span id="author" class="author">gram uses Thymeleaf to layout the page.</span><br>
+</div>
+</div></div>
+    <div class="col-3"></div>
+  </div>
+</header>
+
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6"><div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The idea of Thymeleaf is to have valid HTML source code that even may contain sample data.
+It uses special attributes for example <code>th:&#8230;&#8203;</code> to that are getting picked up by the engine</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_template">Template</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As your default layout put a <code>default.html</code> inside of <code>src/templates</code></p>
+</div>
+<div class="listingblock">
+<div class="title">src/templates/default.html</div>
+<div class="content">
+<pre class="highlight"><code class="language-html" data-lang="html">&lt;!doctype html&gt;
+&lt;html lang="en" xmlns:th="http://www.thymeleaf.org"&gt;
+&lt;body&gt;
+&lt;p&gt;This is my website&lt;/p&gt;
+&lt;div th:insert="${content} :: #content"&gt;
+&lt;/body&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The template engine processes every output of your content (asciidoc files)
+The <code>${content}</code> reflects the output of one asciidoc file (have a look at <code>build/content</code>)</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_gradle_task">Gradle Task</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Gradle task <code>generateHTML</code> processes all outputs of your content files.
+Currently every file <code>&lt;name&gt;.adoc</code> will result in a <code>build/pages/&lt;name&gt;/index.html</code>. Except <code>index.adoc</code> files, they will stay on the same level.</p>
+</div>
+</div>
+</div>
+</div></div>
+    <div class="col-3"></div>
+  </div>
+</main><!-- /.container -->
+<footer class="container"><div id="footer">
+<div id="footer-text">
+Last updated 2019-05-07 23:24:37 +0200
+</div>
+</div></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/asciidoc.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/groovy.min.js"></script>
+<script>
+  hljs.configure({
+    tabReplace: '    ',
+  });
+  hljs.initHighlighting();
+</script>
+</body>
+</html>
