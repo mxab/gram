@@ -9,7 +9,7 @@ gram is an static site generator based on https://gradle.org/[gradle] and https:
 .build.gradle
 [source,groovy]
 ----
-apply plugin : "io.komputer.gram"
+apply plugin : "io.github.mxab.gram"
 ----
 
 === Define first page
