@@ -14,13 +14,13 @@
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/minty/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/zenburn.min.css">
 
-    <link href="/style.css" rel="stylesheet">
+    <link href="/style.css" th:href="@{/style.css}" rel="stylesheet">
 
 </head>
 
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-        <a class="navbar-brand" href="/">gram</a>
+        <a class="navbar-brand" href="/" th:href="@{/}">gram</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -30,10 +30,13 @@
                     <a class="nav-link" href="/">Getting Started<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/content/">Content</a>
+                    <a class="nav-link" href="/content/" th:href="@{/content/}">Content</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/layouting/">Layouting</a>
+                    <a class="nav-link" href="/layouting/" th:href="@{/layouting/}">Layouting</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/configure/" th:href="@{/configure/}">Configure</a>
                 </li>
             </ul>
         </div>
@@ -59,8 +62,15 @@
         </div>
     </main>
     <!-- /.container -->
-    <footer class="container" th:insert="${content} :: #footer">
-        Footer
+    <footer class="container">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6" th:insert="${content} :: #footer">
+                <p>This is the main content</p>
+            </div>
+            <div class="col-3"></div>
+
+        </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 

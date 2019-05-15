@@ -47,4 +47,4 @@ Use gradle's continuous build flag to rerun the build part
 ----
 
 
-
+For more details check link:./content/[Content] and link:layouting/[Layouting]

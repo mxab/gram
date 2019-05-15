@@ -1,0 +1,19 @@
+= Configure
+
+== Context path
+
+Sometimes your site not directly hosted on the root level, let's assume it runs under `/foo` (e.g. `https://example.org/foo/`)
+
+When setting the `contextPath` value in the `gram` extension the template and preview task take this into account.
+
+.build.gradle
+[source,groovy]
+----
+gram {
+  contextPath = "/foo"
+}
+----
+
+In Thymeleaf `th:href=@{/bar}` will result in `href="/foo/bar"`.
+
+The preview task will serve everything under `/foo`

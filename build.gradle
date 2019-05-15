@@ -11,6 +11,9 @@ buildscript {
 
 apply plugin:"io.github.mxab.gram"
 
+gram {
+  contextPath = "/gram"
+}
 tasks.register("docs", Copy){
   from tasks.named("site")
   into("docs")
