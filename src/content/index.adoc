@@ -30,6 +30,7 @@ This is my site
 ./gradlew site
 ----
 
+The generated static files can be found in `build/site`
 
 === Preview
 
